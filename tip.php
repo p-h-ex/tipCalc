@@ -46,6 +46,6 @@ while ($i < $s) {
 	$tip[$i] = $ktArray[$i] * $faktor;
 	echo "<tr><td>$ktArray[$i]</td><td>$tip[$i].&#8364</td></tr>";
 	$i++;
-};
+}
 echo "</table>";
 ?>
