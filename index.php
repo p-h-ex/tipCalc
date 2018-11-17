@@ -26,15 +26,15 @@ function radioErw(){
 	echo '"><label> K./T.</label><td></tr>';
 }
 
-echo '<html><head></head><body style="background-color: #009688";>';
+echo '<html><head></head><body style="background-color: #ef1c25">';
 echo '<form action="tip.php" method="post">';
 echo '<table align="center"><th><p align="center">- Dezimalstellen mit Punkt trennen</p></th><tr><td></td></tr>';
 
 
 $i = 0;
-$s = 8;
+$s = 15;
 while ($i < $s){
-		echo "k:$i";
+		//echo "k:$i";
 		inputServiceToI();
 		echo $i;
 		inputServiceFromM();
