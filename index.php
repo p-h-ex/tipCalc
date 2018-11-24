@@ -26,9 +26,10 @@ function radioErw(){
 	echo '"><label> K./T.</label><td></tr>';
 }
 
-echo '<html><head></head><body style="background-color: #ef1c25">';
+echo '<html><head><meta name="viewport" content="width=device-width, initial-scale=1.0" /</head><body style="background-color: #ef1c25">';
+echo '<p align="center">einfach "Name" des MA und </br>bei "Wert" den abgegebenen TIP oder die Stunden durch . getrennt eintragen,</br>im Menu dann noch die ensprechende Station auswaehlen</p>';
 echo '<form action="tip.php" method="post">';
-echo '<table align="center"><th><p align="center">- Dezimalstellen mit Punkt trennen</p></th><tr><td></td></tr>';
+echo '<table align="center"><th><p align="center" style="color: #ffffff" >Dezimalstellen mit Punkt trennen</p></th><tr><td></td></tr>';
 
 
 $i = 0;
