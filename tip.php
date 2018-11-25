@@ -1,7 +1,8 @@
 <?php
+session_start();
 //counter & array set
 $i = 0;
-$s = 15;
+$s = $_SESSION['counter'];
 $serviceArray = array();
 $serviceMoney = array();
 $ktArray = array();
@@ -21,15 +22,15 @@ while ($i < $s){
 			}
 		$i++;
 }
-/*echo '</br>';
+echo '</br><h1>arrayCheck</h1>';
+echo '</br>';
 print_r($serviceArray);
 echo '</br>';
 print_r($serviceMoney);
 echo '</br>';
 print_r($ktArray);
 echo '</br>';
-print_r($ktTime);
-*/			
+print_r($ktTime);			
 echo '</br>';
 
 $faktor = array_sum($serviceMoney) / array_sum($ktTime);
@@ -41,18 +42,39 @@ echo "<p align='center' style='background-color:#ef1c25;color:#ffffff;font-size:
 foreach ($_POST as $key => $value) { 
 		echo $key . " = " . $value . "";
 		echo '</br>'; 
-}
+		}
+
+Liefert: Hll PHP-Wlt
+$vokale = array("a", "e", "i", "o", "u", "A", "E", "I", "O", "U");
+$onlyconsonants = str_replace($vokale, "", "Hallo PHP-Welt");
 */			
 //make table with calculated tip
 echo "<table border='1' align='center'>";
-echo "<tr><td style='background-color: #ef1c25'><b>Name</b></td><td style='background-color: #ef1c25'>Tip</td></tr>";
+echo "<tr><td style='background-color: #E5E5E5'><b>Name</b></td><td style='background-color: #E5E5E5'>Tip</td></tr>";
 $tip = array();
-for ($i = 0; $i < 15;$i++) {
+for ($i = 0; $i < $s ;$i++) {
 		if(isset($ktTime["$i"])){
-		$ergebnis = $ktTime["$i"] * $faktor;
+		$timeString = $ktTime[$i];
+		$komma = ",";
+		$punkt = ".";
+		$pointTime = str_replace($komma, ".",$timeString);
+		$ergebnis = $pointTime * $faktor;
 		$ergebnisRound = round($ergebnis,2,PHP_ROUND_HALF_DOWN);
-		$tip["$i"] = $ergebnisRound;
-		echo "<tr><td style='background-color: #ef1c25'><b>$ktArray[$i]</b></td><td>$tip[$i].eu</td></tr>";
+		$ergebnisRoundKomma = str_replace($punkt, ",",$ergebnisRound);
+		$tip["$i"] = $ergebnisRoundKomma;
+		echo "<tr><td style='background-color: #ef1c25'><b>$ktArray[$i]</b></td><td>$tip[$i] eur </td></tr>";
+		}
+		$i++;
+		if(isset($ktTime["$i"])){
+		$timeString = $ktTime[$i];
+		$komma = ",";
+		$punkt = ".";
+		$pointTime = str_replace($komma, ".","$timeString");
+		$ergebnis = $pointTime * $faktor;
+		$ergebnisRound = round($ergebnis,2,PHP_ROUND_HALF_DOWN);
+		$ergebnisRoundKomma = str_replace($punkt, ",",$ergebnisRound);
+		$tip["$i"] = $ergebnisRoundKomma;
+		echo "<tr><td style='background-color: #E5E5E5'><b>$ktArray[$i]</b></td><td>$tip[$i] eur </td></tr>";
 		}
 };
 echo "</table>";
